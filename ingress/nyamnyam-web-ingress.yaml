@@ -19,14 +19,3 @@ spec:
                 name: nyamnyam-nextjs
                 port:
                   number: 80
-    # canary 테스트 서비스
-    - host: canary.nyamnyam.kr
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: nyamnyam-nextjs-canary
-                port:
-                  number: 80

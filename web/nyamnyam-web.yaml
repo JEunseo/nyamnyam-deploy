@@ -1,5 +1,5 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Rollout
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: nyamnyam-nextjs
   namespace: nyamnyam
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: nyamnyam-nextjs
-          image: harbor.dorong9.com/nyamnyam/nyamnyam-nextjs:153
+          image: docker.io/jeunseo/nyamnyam-post-service:latest
           ports:
             - containerPort: 3000
           resources:
