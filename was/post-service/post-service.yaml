@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: post-service
-          image: nyamnyam.kr/jeunseo/nyamnyam-post-service:latest
+          image: docker.io/jeunseo/nyamnyam-post-service:latest
           ports:
             - containerPort: 8080
           resources:
