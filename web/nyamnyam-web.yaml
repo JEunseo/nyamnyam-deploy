@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: nyamnyam-post-service
-          image: docker.io/jeunseo/nyamnyam-post-service:latest  # Docker 이미지
+          image: nyamnyam.kr/jeunseo/nyamnyam-post-service:latest  # Docker 이미지
           ports:
             - containerPort: 8080
 ---
