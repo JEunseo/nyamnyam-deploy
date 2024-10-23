@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: nyamnyam-nextjs
-          image: harbor.dorong9.com/mannazo/mannazu-nextjs:153
+          image: harbor.dorong9.com/nyamnyam/nyamnyam-nextjs:153
           ports:
             - containerPort: 3000
           resources:
