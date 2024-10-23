@@ -1,63 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nyamnyam-nextjs
+  name: nyamnyam-post-service
   namespace: nyamnyam
 spec:
-  revisionHistoryLimit: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: nyamnyam-nextjs
+      app: nyamnyam-post-service
   template:
     metadata:
       labels:
-        app: nyamnyam-nextjs
+        app: nyamnyam-post-service
     spec:
       containers:
-        - name: nyamnyam-nextjs
-          image: docker.io/jeunseo/nyamnyam-post-service:latest
+        - name: nyamnyam-post-service
+          image: docker.io/jeunseo/nyamnyam-post-service:latest  # Docker 이미지
           ports:
-            - containerPort: 3000
-          resources:
-            requests:
-              cpu: "0"
-              memory: "0"
-            limits:
-              cpu: "500m"
-              memory: "600Mi"
-      imagePullSecrets:
-        - name: nyamnyam-regcred
-  strategy:
-    canary:
-      canaryService: nyamnyam-nextjs-canary
-      steps:
-        - setWeight: 50
-        - pause: {}
-      maxSurge: "50%"
-      maxUnavailable: 0
+            - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: nyamnyam-nextjs
+  name: nyamnyam-post-service
   namespace: nyamnyam
 spec:
+  selector:
+    app: nyamnyam-post-service
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 3000
-  selector:
-    app: nyamnyam-nextjs
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: nyamnyam-nextjs-canary
-  namespace: nyamnyam
-spec:
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 3000
-  selector:
-    app: nyamnyam-nextjs
+      targetPort: 8080
+  type: LoadBalancer
