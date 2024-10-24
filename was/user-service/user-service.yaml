@@ -4,7 +4,7 @@ metadata:
   name: user-service
   namespace: nyamnyam
 spec:
-  revisionHistoryLimit: 1
+  replicas: 1
   selector:
     matchLabels:
       app: user-service
@@ -34,14 +34,14 @@ spec:
       volumes:
         - name: config-volume
           configMap:
-            name: user-service-config
+            name: user-service
       imagePullSecrets:
         - name: nyamnyam-regcred
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: user-service-stable
+  name: user-service
   namespace: nyamnyam
 spec:
   ports:

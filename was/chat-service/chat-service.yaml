@@ -41,7 +41,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: chat-service-stable
+  name: chat-service
   namespace: nyamnyam
 spec:
   ports:

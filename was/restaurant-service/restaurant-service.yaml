@@ -15,16 +15,16 @@ spec:
     spec:
       containers:
         - name: restaurant-service
-          image: docker.io/jeunseo/nyamnyam-admin-service:latest
+          image: docker.io/jeunseo/nyamnyam-restaurant-service:latest
           ports:
             - containerPort: 8080
           resources:
             requests:
-              cpu: 500m
-              memory: 250Mi
+              cpu: 0m
+              memory: 0Mi
             limits:
-              cpu: 1000m
-              memory: 1000Mi
+              cpu: 500m
+              memory: 800Mi
           volumeMounts:
             - name: config-volume
               mountPath: /app/config
@@ -34,14 +34,14 @@ spec:
       volumes:
         - name: config-volume
           configMap:
-            name: restaurant-service-config
+            name: restaurant-service
       imagePullSecrets:
         - name: nyamnyam-regcred
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: restaurant-service-stable
+  name: restaurant-service
   namespace: nyamnyam
 spec:
   ports:
