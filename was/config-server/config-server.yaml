@@ -31,7 +31,7 @@ spec:
               value: git
             - name: SPRING_CLOUD_CONFIG_SERVER_GIT_URI
               value: git@github.com:JEunseo/nyamnyam-secret-server.git
-            - name: SPRING_CLOUD_CONFIG_SERVER_GIT_SSH_KEY
+            - name: spring.cloud.config.server.git.private-key
               valueFrom:
                 secretKeyRef:
                   name: git-credentials
