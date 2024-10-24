@@ -37,9 +37,9 @@ spec:
             - name: gateway-volume
               mountPath: /app/config  # 설정 파일을 마운트할 경로
       volumes:
-        - name: gateway-volume
+        - name: config-volume
           configMap:
-            name: gateway-server-config  # ConfigMap 이름, 필요에 따라 수정
+            name: gateway-server  # ConfigMap 이름, 필요에 따라 수정
       imagePullSecrets:
         - name: nyamnyam-regcred  # 이미지 풀 비밀 이름, 맞는지 확인
 ---
