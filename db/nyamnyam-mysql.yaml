@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: nyamnyam-mysql
-          image: yobasystems/alpine-mariadb:10.5.9
+          image: docker.id/jeunseo/nyamnyam-mariadb:10.5.9
           env:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
