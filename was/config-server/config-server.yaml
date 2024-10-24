@@ -63,3 +63,4 @@ spec:
       targetPort: 8888
   selector:
     app: config-server
+  type: LoadBalancer
