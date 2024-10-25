@@ -54,10 +54,10 @@ metadata:
   name: config-server
   namespace: nyamnyam
 spec:
+  type: LoadBalancer
   ports:
     - protocol: TCP
       port: 8888
       targetPort: 8888
   selector:
     app: config-server
-  type: LoadBalancer

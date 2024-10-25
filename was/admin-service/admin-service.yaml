@@ -17,7 +17,7 @@ spec:
         - name: admin-service
           image: docker.io/jeunseo/nyamnyam-admin-service:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 8001
           resources:
             requests:
               cpu: 500m
@@ -46,7 +46,7 @@ metadata:
 spec:
   ports:
     - protocol: TCP
-      port: 8080
-      targetPort: 8080
+      port: 8001
+      targetPort: 8001
   selector:
     app: admin-service
